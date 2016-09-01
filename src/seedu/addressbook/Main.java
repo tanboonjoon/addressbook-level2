@@ -23,7 +23,9 @@ public class Main {
     public static final String VERSION = "AddessBook Level 2 - Version 1.0";
 
     private TextUi ui;
+
     private StorageFile storage;
+
     private AddressBook addressBook;
 
     /** The list of person shown to the user most recently.  */
