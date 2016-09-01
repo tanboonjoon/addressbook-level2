@@ -5,7 +5,6 @@ import seedu.addressbook.storage.StorageFile.*;
 
 import seedu.addressbook.commands.*;
 import seedu.addressbook.data.AddressBook;
-import seedu.addressbook.data.exception.DeletedStorageFileException;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
@@ -32,13 +31,13 @@ public class Main {
     private List<? extends ReadOnlyPerson> lastShownList = null;
 
 
-    public static void main(String... launchArgs) throws DeletedStorageFileException {
+    public static void main(String... launchArgs)  {
         new Main().run(launchArgs);
     }
 
     /** Runs the program until termination.  
      * @throws DeletedStorageFileException */
-    public void run(String[] launchArgs) throws DeletedStorageFileException {
+    public void run(String[] launchArgs)  {
         start(launchArgs);
         runCommandLoopUntilExitCommand();
         exit();
@@ -80,7 +79,7 @@ public class Main {
 
     /** Reads the user command and executes it, until the user issues the exit command.  
      * @throws DeletedStorageFileException */
-    private void runCommandLoopUntilExitCommand() throws DeletedStorageFileException {
+    private void runCommandLoopUntilExitCommand()  {
         Command command;
         do {
             String userCommandText = ui.getUserCommand();
@@ -107,12 +106,11 @@ public class Main {
      * @return result of the command
      * @throws DeletedStorageFileException 
      */
-    private CommandResult executeCommand(Command command) throws DeletedStorageFileException  {
+    private CommandResult executeCommand(Command command)   {
     	if(!storage.exists()) {
-    		throw new DeletedStorageFileException("Storage file has been deleted, please recover it");
+    		ui.showToUser(storage.getWarningMessage());
     	}
-    	
-    	
+
         try {
             command.setData(addressBook, lastShownList);
             CommandResult result = command.execute();
