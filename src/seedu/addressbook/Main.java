@@ -5,10 +5,12 @@ import seedu.addressbook.storage.StorageFile.*;
 
 import seedu.addressbook.commands.*;
 import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.exception.DeletedStorageFileException;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
 
+import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,12 +32,13 @@ public class Main {
     private List<? extends ReadOnlyPerson> lastShownList = null;
 
 
-    public static void main(String... launchArgs) {
+    public static void main(String... launchArgs) throws DeletedStorageFileException {
         new Main().run(launchArgs);
     }
 
-    /** Runs the program until termination.  */
-    public void run(String[] launchArgs) {
+    /** Runs the program until termination.  
+     * @throws DeletedStorageFileException */
+    public void run(String[] launchArgs) throws DeletedStorageFileException {
         start(launchArgs);
         runCommandLoopUntilExitCommand();
         exit();
@@ -75,8 +78,9 @@ public class Main {
         System.exit(0);
     }
 
-    /** Reads the user command and executes it, until the user issues the exit command.  */
-    private void runCommandLoopUntilExitCommand() {
+    /** Reads the user command and executes it, until the user issues the exit command.  
+     * @throws DeletedStorageFileException */
+    private void runCommandLoopUntilExitCommand() throws DeletedStorageFileException {
         Command command;
         do {
             String userCommandText = ui.getUserCommand();
@@ -101,8 +105,14 @@ public class Main {
      * 
      * @param command user command
      * @return result of the command
+     * @throws DeletedStorageFileException 
      */
-    private CommandResult executeCommand(Command command)  {
+    private CommandResult executeCommand(Command command) throws DeletedStorageFileException  {
+    	if(!storage.exists()) {
+    		throw new DeletedStorageFileException("Storage file has been deleted, please recover it");
+    	}
+    	
+    	
         try {
             command.setData(addressBook, lastShownList);
             CommandResult result = command.execute();

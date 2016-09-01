@@ -11,7 +11,7 @@ import javax.xml.bind.Unmarshaller;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
+import java.nio.file.*;
 /**
  * Represents the file used to store address book data.
  */
@@ -143,6 +143,11 @@ public class StorageFile {
 
     public String getPath() {
         return path.toString();
+    }
+    
+    public boolean exists() {
+    	File file = new File(DEFAULT_STORAGE_FILEPATH);
+    	return file.exists();
     }
 
 }
