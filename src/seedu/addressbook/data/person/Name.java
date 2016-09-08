@@ -73,6 +73,9 @@ public class Name {
      */
     
     public boolean isSimilar(Name other) {
+    	if(other == null) {
+    		return false;
+    	}
     	String thisName = fullName.toLowerCase();
     	String otherName = other.toString().toLowerCase();
     	if(thisName.equals(otherName)) {
