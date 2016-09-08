@@ -17,6 +17,7 @@ public class NameTest {
 	Name name2;
 	Name name3;
 	Name name4;
+	Name name5;
 	Name nameNull;
 
 	@Before
@@ -25,6 +26,7 @@ public class NameTest {
 		name2 = new Name("Alex");
 		name3 = new Name("tAN");
 		name4 = new Name("BOON jOon");
+		name5 = new Name("ALEXANDER MONEY KOBE tAn");
 			
 	}
 	
@@ -45,7 +47,7 @@ public class NameTest {
 	
 	@Test
 	public void isSimilar_SimilarName() {
-		assertTrue(name1.isSimilar(name4));
+		assertTrue(name1.isSimilar(name5));
 	}
 	
 

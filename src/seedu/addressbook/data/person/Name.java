@@ -78,10 +78,14 @@ public class Name {
     	}
     	String thisName = fullName.toLowerCase();
     	String otherName = other.toString().toLowerCase();
-    	if(thisName.equals(otherName)) {
-    		return true;
+    	String[] otherNameArr = otherName.split(" ");
+    	for(String s : otherNameArr) {
+    		if(thisName.contains(s)) {
+    			return true;
+    		}
     	}
     	return false;
+
     }
 
 }
