@@ -33,5 +33,10 @@ public class NameTest {
 		assertTrue(name1.isSimilar(name3));
 	}
 	
+	@Test
+	public void isSimilar_NullObj() {
+		assertFalse(name1.isSimilar(nameNull));
+	}
+	
 
 }
