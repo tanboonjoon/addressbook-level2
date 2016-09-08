@@ -13,7 +13,7 @@ import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.Phone;
 
 public class NameTest {
-	Name name1;
+	Name SIMILAR_NAME_1;
 	Name name2;
 	Name name3;
 	Name name4;
@@ -23,7 +23,7 @@ public class NameTest {
 
 	@Before
 	public void setUp() throws IllegalValueException {
-		name1 = new Name("Tan");
+		SIMILAR_NAME_1 = new Name("Tan");
 		name2 = new Name("Alex");
 		name3 = new Name("tAN");
 		name4 = new Name("BOON jOon");
@@ -34,22 +34,22 @@ public class NameTest {
 	
 	@Test
 	public void isSimilar_SameName() {
-		assertTrue(name1.isSimilar(name3));
+		assertTrue(SIMILAR_NAME_1.isSimilar(name3));
 	}
 	
 	@Test
 	public void isSimilar_NullObj() {
-		assertFalse(name1.isSimilar(nameNull));
+		assertFalse(SIMILAR_NAME_1.isSimilar(nameNull));
 	}
 	
 	@Test
 	public void isSimilar_DifferentName() {
-		assertFalse(name1.isSimilar(name2));
+		assertFalse(SIMILAR_NAME_1.isSimilar(name2));
 	}
 	
 	@Test
 	public void isSimilar_SimilarName() {
-		assertTrue(name1.isSimilar(name5));
+		assertTrue(SIMILAR_NAME_1.isSimilar(name5));
 	}
 	
 	@Test
