@@ -13,48 +13,46 @@ import seedu.addressbook.data.person.Person;
 import seedu.addressbook.data.person.Phone;
 
 public class NameTest {
-	Name SIMILAR_NAME_1;
-	Name name2;
-	Name name3;
-	Name name4;
-	Name name5;
-	Name name6;
+	Name sameName_1;
+	Name differentName;
+	Name sameName_2;
+	Name similar_to_sameName_1;
+	Name longName_2;
 	Name nameNull;
 
 	@Before
 	public void setUp() throws IllegalValueException {
-		SIMILAR_NAME_1 = new Name("Tan");
-		name2 = new Name("Alex");
-		name3 = new Name("tAN");
-		name4 = new Name("BOON jOon");
-		name5 = new Name("ALEXANDER MONEY KOBE tAn");
-		name6 = new Name("MARY BEN COOKING COMMONWEALTH HEY JONATHAN JOEL");
+		sameName_1 = new Name("Tan");
+		differentName = new Name("Alex");
+		sameName_2 = new Name("tAN");
+		similar_to_sameName_1 = new Name("ALEXANDER MONEY KOBE tAn");
+		longName_2 = new Name("MARY BEN COOKING COMMONWEALTH HEY JONATHAN JOEL");
 			
 	}
 	
 	@Test
 	public void isSimilar_SameName() {
-		assertTrue(SIMILAR_NAME_1.isSimilar(name3));
+		assertTrue(sameName_1.isSimilar(sameName_2));
 	}
 	
 	@Test
 	public void isSimilar_NullObj() {
-		assertFalse(SIMILAR_NAME_1.isSimilar(nameNull));
+		assertFalse(sameName_1.isSimilar(nameNull));
 	}
 	
 	@Test
 	public void isSimilar_DifferentName() {
-		assertFalse(SIMILAR_NAME_1.isSimilar(name2));
+		assertFalse(sameName_1.isSimilar(differentName));
 	}
 	
 	@Test
 	public void isSimilar_SimilarName() {
-		assertTrue(SIMILAR_NAME_1.isSimilar(name5));
+		assertTrue(sameName_1.isSimilar(similar_to_sameName_1));
 	}
 	
 	@Test
 	public void isSimilar_DifferentLongName() {
-		assertFalse(name5.isSimilar(name6));
+		assertFalse(similar_to_sameName_1.isSimilar(longName_2));
 	}
 	
 

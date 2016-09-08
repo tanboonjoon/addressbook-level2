@@ -73,19 +73,27 @@ public class Name {
      */
     
     public boolean isSimilar(Name other) {
-    	if(other == null) {
+    	if(isNull(other)) {
     		return false;
     	}
     	String thisName = fullName.toLowerCase();
     	String otherName = other.toString().toLowerCase();
     	String[] otherNameArr = otherName.split(" ");
+    	
+    	return hasSubString(thisName, otherNameArr);
+    }
+    	
+    public boolean isNull(Name other) {
+    	return other == null;
+    }
+    
+    public boolean hasSubString(String thisName, String[] otherNameArr) {
     	for(String s : otherNameArr) {
     		if(thisName.contains(s)) {
     			return true;
     		}
     	}
     	return false;
-
     }
 
 }
