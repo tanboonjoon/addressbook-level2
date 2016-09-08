@@ -60,5 +60,25 @@ public class Name {
     public int hashCode() {
         return fullName.hashCode();
     }
+    /**
+     * Return true of other name is very similar to this name
+     * Two name are considered similar if at least 1 part of 
+     * other name is in this name
+     * Example:
+     * this_name : Tan Boon Joon
+     * Other_name : Alex johnny Joon;
+     * Both name are similar as both contained Joon
+     * @param other
+     * @return boolean
+     */
+    
+    public boolean isSimilar(Name other) {
+    	String thisName = fullName.toLowerCase();
+    	String otherName = other.toString().toLowerCase();
+    	if(thisName.equals(otherName)) {
+    		return true;
+    	}
+    	return false;
+    }
 
 }

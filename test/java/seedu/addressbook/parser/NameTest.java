@@ -32,6 +32,6 @@ public class NameTest {
 	public void isSimilar_SameName() {
 		assertTrue(name1.isSimilar(name3));
 	}
-	}
+	
 
 }
