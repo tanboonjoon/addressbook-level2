@@ -18,6 +18,7 @@ public class NameTest {
 	Name name3;
 	Name name4;
 	Name name5;
+	Name name6;
 	Name nameNull;
 
 	@Before
@@ -27,6 +28,7 @@ public class NameTest {
 		name3 = new Name("tAN");
 		name4 = new Name("BOON jOon");
 		name5 = new Name("ALEXANDER MONEY KOBE tAn");
+		name6 = new Name("MARY BEN COOKING COMMONWEALTH HEY JONATHAN JOEL");
 			
 	}
 	
@@ -48,6 +50,11 @@ public class NameTest {
 	@Test
 	public void isSimilar_SimilarName() {
 		assertTrue(name1.isSimilar(name5));
+	}
+	
+	@Test
+	public void isSimilar_DifferentLongName() {
+		assertFalse(name5.isSimilar(name6));
 	}
 	
 
