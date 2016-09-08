@@ -1,6 +1,7 @@
 package seedu.addressbook;
 
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.tag.Tagging;
 import seedu.addressbook.storage.StorageFile.*;
 
 import seedu.addressbook.commands.*;
@@ -9,6 +10,7 @@ import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 import seedu.addressbook.ui.TextUi;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,6 +27,8 @@ public class Main {
     private TextUi ui;
     private StorageFile storage;
     private AddressBook addressBook;
+    private ArrayList<Tagging> tagList;
+
 
     /** The list of person shown to the user most recently.  */
     private List<? extends ReadOnlyPerson> lastShownList = null;
@@ -52,6 +56,7 @@ public class Main {
             this.ui = new TextUi();
             this.storage = initializeStorage(launchArgs);
             this.addressBook = storage.load();
+            tagList = new ArrayList<Tagging> ();
             ui.showWelcomeMessage(VERSION, storage.getPath());
 
         } catch (InvalidStorageFilePathException | StorageOperationException e) {
