@@ -43,5 +43,10 @@ public class NameTest {
 		assertFalse(name1.isSimilar(name2));
 	}
 	
+	@Test
+	public void isSimilar_SimilarName() {
+		assertTrue(name1.isSimilar(name4));
+	}
+	
 
 }
