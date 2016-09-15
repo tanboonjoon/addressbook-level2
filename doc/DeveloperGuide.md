@@ -82,6 +82,20 @@ MSS:
 Postcondition: Address book will prompt user to enter another command.
 
 
+## Non-Functional Requirements
+
+*Address book must be able to execute each command within 5 seconds
+
+*Address book must be able to be run by different language
+
+*Address book should be able to allow new enhancement at any point of time
+
+*Address book should be open source
+
+*Address book should be able to recover its data(addressbook) following a natural or human-induced disaster
+
+*Address book must be capable of storing up to 1 million individual information
+
 
 
 
