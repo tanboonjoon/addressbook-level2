@@ -65,6 +65,21 @@
 
 *As a user, i would like to see a history of some of my past commands i have entered so i can reenact them without typing all over again.
 
+## Use Case
+
+Software Syste,: Addressbook-level2
+Use Case UC001: Rename Tag
+Precondition: The tag must exist in the system
+MSS:
+    1.User will type in the Edit Tag Command including the name of a existing tag
+    2.Address book will display the number of people that has that existing tag
+    3.Address book will prompt for the new name for the existing tag
+    4.User will enter the new name of the existing tag
+    5.Address book will ask for confirmation for changing old name --> new name
+    6.User will confirm with Address book
+    7.Address book will display the number of people that has their tag changed
+    Use case ends
+Postcondition: Address book will prompt user to enter another command.
 
 
 
