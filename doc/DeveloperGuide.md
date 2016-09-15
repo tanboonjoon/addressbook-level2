@@ -51,3 +51,22 @@
 * Problem: Test fails during the very first time.<br>
   Solution: The output of the very first test run could be slightly different because the program
   creates a new storage file. Tests should pass from the 2nd run onwards.
+
+## User Stories
+
+*As a user, i would like to be able to modify my information anytime i want.
+
+*As a admin, i want to make sure the addressbook are sorted by name at all time.
+
+*As a user, i would like to only share my informations with people restricted by [tags]
+ For example, only people with [Friend] tag and view my information
+
+*As a admin, i want to make sure each user can only modify their own information whereas a [Admin]   tag individual is allowed to edit anyone information.
+
+*As a user, i would like to see a history of some of my past commands i have entered so i can reenact them without typing all over again.
+
+
+
+
+
+
